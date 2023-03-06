@@ -25,8 +25,9 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>['required', Rule::unique('posts')->ignore($this->post),'max:150'],
-            'content' => ['nullable']
+            'title'       =>['required', Rule::unique('posts')->ignore($this->post),'max:150'],
+            'content'     => ['nullable'],
+            'category_id' =>['nullable','exists:categories,id']
         ];
     }
 
@@ -40,7 +41,8 @@ class UpdatePostRequest extends FormRequest
         return [
             'title.required'=> 'A title is required',
             'title.unique' => 'E\' gia presente un post con questo titolo',
-            'title.max'=>'Il post non può essere più lungo di :max caratteri'
+            'title.max'=>'Il post non può essere più lungo di :max caratteri',
+            'category_id.exists' => 'Devi selezionare'
         ];
     }
 }
