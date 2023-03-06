@@ -35,7 +35,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            //1. step
+            $table->dropForeign('posts_category_id_foreign'); //DROPPA NELLA TABELLA POSTS LA COLONNA CATEGORY_ID CHE è LA FOREIGN
+            // 2.step
+            $table->dropColumn('category_id');
         });
     }
 };
