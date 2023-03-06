@@ -12,6 +12,7 @@
             </div>
             <div class="col-12">
                 <p><strong>Slug:</strong>{{$post->slug}}</p>
+                <p><strong>Categoria:</strong>{{$post->category ? $post->category->name : 'Senza categoria'}}</p>
                 <label class="d-block"><strong>Contenuto:</strong></label>
                 <p>{{$post->content}}</p>
             </div>
